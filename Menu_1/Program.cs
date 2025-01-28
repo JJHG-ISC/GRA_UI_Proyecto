@@ -81,84 +81,84 @@ internal class Program
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Dibujar espiral");
+        Console.WriteLine("Dibujar espiral divertida");
         Console.ResetColor();
 
-        int x = Console.WindowWidth / 2;
-        int y = Console.WindowHeight / 2;
-        int horizontal = 5;
-        int vertical = 2;
-        int pasos = 0;
-        bool derecha = false;
-        bool izquierda = true;
-        bool arriba = false;
-        bool abajo = false;
+        int ranaX = Console.WindowWidth / 2;
+        int ranaY = Console.WindowHeight / 2; 
+        int pasosLargos = 5; 
+        int pasosCortos = 2; 
+        int contadorPasos = 0; 
+        bool saltandoDerecha = false; 
+        bool saltandoIzquierda = true; 
+        bool saltandoArriba = false; 
+        bool saltandoAbajo = false;
         bool neutro = true;
 
-        ConsoleColor[] colores = { ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Cyan };
+        ConsoleColor[] arcoiris = { ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Cyan }; // Colores 
 
-        for (int i = 0; i < 461; i++)
+        for (int brincos = 0; brincos < 461; brincos++) // ¡Muchas vueltas! 
         {
-            if (izquierda && pasos < horizontal && neutro)
+            if (saltandoIzquierda && contadorPasos < pasosLargos && neutro)
             {
-                Console.ForegroundColor = colores[i % colores.Length];
-                Console.SetCursorPosition(x--, y);
+                Console.ForegroundColor = arcoiris[brincos % arcoiris.Length];
+                Console.SetCursorPosition(ranaX--, ranaY);
                 Console.WriteLine("*");
-                pasos++;
-                if (pasos == horizontal)
+                contadorPasos++;
+                if (contadorPasos == pasosLargos)
                 {
-                    pasos = 0;
-                    horizontal += 5;
-                    arriba = true;
-                    izquierda = false;
+                    contadorPasos = 0;
+                    pasosLargos += 5;
+                    saltandoArriba = true;
+                    saltandoIzquierda = false;
                     neutro = false;
                 }
                 System.Threading.Thread.Sleep(40);
             }
-            else if (arriba && pasos < vertical && !neutro)
+            else if (saltandoArriba && contadorPasos < pasosCortos && !neutro)
             {
-                Console.ForegroundColor = colores[i % colores.Length];
-                Console.SetCursorPosition(x, y--);
+                Console.ForegroundColor = arcoiris[brincos % arcoiris.Length];
+                Console.SetCursorPosition(ranaX, ranaY--);
                 Console.WriteLine("*");
-                pasos++;
-                if (pasos == vertical)
+                contadorPasos++;
+                if (contadorPasos == pasosCortos)
                 {
-                    pasos = 0;
-                    vertical += 2;
-                    derecha = true;
-                    arriba = false;
+                    contadorPasos = 0;
+                    pasosCortos += 2;
+                    saltandoDerecha = true;
+                    saltandoArriba = false;
                     neutro = true;
                 }
                 System.Threading.Thread.Sleep(40);
             }
-            else if (derecha && pasos < horizontal && neutro)
+            else if (saltandoDerecha && contadorPasos < pasosLargos && neutro)
             {
-                Console.ForegroundColor = colores[i % colores.Length];
-                Console.SetCursorPosition(x++, y);
+                Console.ForegroundColor = arcoiris[brincos % arcoiris.Length];
+                Console.SetCursorPosition(ranaX++, ranaY);
                 Console.WriteLine("*");
-                pasos++;
-                if (pasos == horizontal)
+                contadorPasos++;
+                if (contadorPasos == pasosLargos)
                 {
-                    pasos = 0;
-                    horizontal += 5;
-                    abajo = true;
-                    derecha = false;
+                    contadorPasos = 0;
+                    pasosLargos += 5;
+                    saltandoAbajo = true;
+                    saltandoDerecha = false;
                     neutro = false;
                 }
                 System.Threading.Thread.Sleep(40);
             }
-            else if (abajo && pasos < vertical && !neutro)
+            else if (saltandoAbajo && contadorPasos < pasosCortos && !neutro)
             {
-                Console.ForegroundColor = colores[i % colores.Length];
-                Console.SetCursorPosition(x, y++);
+                Console.ForegroundColor = arcoiris[brincos % arcoiris.Length];
+                Console.SetCursorPosition(ranaX, ranaY++);
                 Console.WriteLine("*");
-                pasos++;
-                if (pasos == vertical)
+                contadorPasos++;
+                if (contadorPasos == pasosCortos)
                 {
-                    pasos = 0;
-                    vertical += 2;
-                    izquierda = true;
-                    abajo = false;
+                    contadorPasos = 0;
+                    pasosCortos += 2;
+                    saltandoIzquierda = true;
+                    saltandoAbajo = false;
                     neutro = true;
                 }
                 System.Threading.Thread.Sleep(40);
@@ -167,8 +167,9 @@ internal class Program
 
         Console.SetCursorPosition(0, Console.WindowHeight - 1);
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Listo!!! Presiona una tecla para continuar.");
+        Console.WriteLine("¡Espiral lista! Presiona cualquier tecla para continuar.");
         Console.ResetColor();
         Console.ReadKey();
     }
+
 }
