@@ -97,7 +97,7 @@ internal class Program
 
         ConsoleColor[] arcoiris = { ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Cyan }; // Colores 
 
-        for (int brincos = 0; brincos < 461; brincos++) // ¡Muchas vueltas! 
+        for (int brincos = 0; brincos < 461; brincos++) // ¡Muchas vueltas
         {
             if (saltandoIzquierda && contadorPasos < pasosLargos && neutro)
             {
