@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Menu_1
 {
-    class Class2
+    class Menú2
     {
     }
 }

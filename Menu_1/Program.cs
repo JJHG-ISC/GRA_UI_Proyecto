@@ -13,7 +13,7 @@ internal class Program
             {
                 if (opcion == 1) DibujarGrafica();
                 else if (opcion == 2) DibujarEspiral();
-                else if (opcion == 3) salir = true;
+                else if (opcion ==  3) salir = true;
                 else MostrarError("Opción no válida.");
             }
             else MostrarError("Introduce un número válido.");
